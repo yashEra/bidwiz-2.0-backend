@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 # upload file and rename
 def upload_to(instance, filename):
     return 'items/{filename}.{ext}'.format(filename=instance.pk , ext = filename.split('.')[-1])
