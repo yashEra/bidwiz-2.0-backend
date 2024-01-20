@@ -8,20 +8,20 @@ def upload_to(instance, filename):
 # user model : its override the djangp abstract user
 class User(AbstractUser):
     email= models.EmailField(max_length=200 , primary_key=True)
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256 ,null = True)
     password = models.CharField(max_length=1024)
     birth_date = models.CharField(max_length=30)
     avatar = models.ImageField(upload_to=upload_to , default="users/default_user.svg")
-    username = None
-    first_name = None
-    last_name = None
-    is_staff = None
+    username = models.CharField(max_length=256,null= True)
+    first_name = models.CharField(max_length=256,null= True)
+    last_name = models.CharField(max_length=256,null= True)
+    is_staff = models.BooleanField(default = True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = [name , email , password]
 
 # items
-class Book(models.Model):
+class items(models.Model):
     item_id = models.CharField(max_length = 50 , primary_key = True)
     item_name = models.CharField(max_length = 256)
     category = models.CharField(max_length = 256)

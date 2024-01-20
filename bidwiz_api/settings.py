@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bidwiz_api.urls'
+AUTH_USER_MODEL = "api.User" 
 
 TEMPLATES = [
     {
